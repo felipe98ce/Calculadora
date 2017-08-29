@@ -151,6 +151,8 @@ public class ventana extends javax.swing.JFrame {
     }//GEN-LAST:event_displayActionPerformed
 
     private void botonsumaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonsumaMouseClicked
+float dato;
+dato = Float.valueOf(display.getText());
 
 
     }//GEN-LAST:event_botonsumaMouseClicked
