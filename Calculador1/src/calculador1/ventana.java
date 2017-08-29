@@ -88,6 +88,11 @@ public class ventana extends javax.swing.JFrame {
         botonigual.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         botonigual.setForeground(new java.awt.Color(51, 153, 255));
         botonigual.setText("=");
+        botonigual.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botonigualMouseClicked(evt);
+            }
+        });
         botonigual.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonigualActionPerformed(evt);
@@ -156,8 +161,9 @@ dato = Float.valueOf(display.getText());
 cal.operando1 = dato;
 cal.suma();
 dato = cal.resultado;
-display.setText(string.valuof (dato))
-
+display.setText(String.valueOf(dato));
+display.setText("");
+cal.operando2 = dato;
 
     }//GEN-LAST:event_botonsumaMouseClicked
 
@@ -180,6 +186,10 @@ display.setText(string.valuof (dato))
     private void botonacActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonacActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_botonacActionPerformed
+
+    private void botonigualMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonigualMouseClicked
+display.setText(String.valueOf(cal.resultado));        // TODO add your handling code here:
+    }//GEN-LAST:event_botonigualMouseClicked
 
     /**
      * @param args the command line arguments
