@@ -56,6 +56,11 @@ public class ventana extends javax.swing.JFrame {
         botonac.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         botonac.setForeground(new java.awt.Color(51, 153, 255));
         botonac.setText("AC");
+        botonac.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botonacMouseClicked(evt);
+            }
+        });
         botonac.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonacActionPerformed(evt);
@@ -79,6 +84,11 @@ public class ventana extends javax.swing.JFrame {
         botonresta.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         botonresta.setForeground(new java.awt.Color(51, 153, 255));
         botonresta.setText("-");
+        botonresta.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                botonrestaMouseClicked(evt);
+            }
+        });
         botonresta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonrestaActionPerformed(evt);
@@ -156,14 +166,16 @@ public class ventana extends javax.swing.JFrame {
     }//GEN-LAST:event_displayActionPerformed
 
     private void botonsumaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonsumaMouseClicked
-float dato;
+float dato=0;
+cal.operando1 = 0;
 dato = Float.valueOf(display.getText());
 cal.operando1 = dato;
 cal.suma();
 dato = cal.resultado;
+cal.operando2 = dato;
 display.setText(String.valueOf(dato));
 display.setText("");
-cal.operando2 = dato;
+
 
     }//GEN-LAST:event_botonsumaMouseClicked
 
@@ -188,8 +200,22 @@ cal.operando2 = dato;
     }//GEN-LAST:event_botonacActionPerformed
 
     private void botonigualMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonigualMouseClicked
-display.setText(String.valueOf(cal.resultado));        // TODO add your handling code here:
+        if(cal.operando1<0){
+            cal.resta();
+        }else{
+            cal.suma();
+        }
+        display.setText(String.valueOf(cal.resultado));  
+// TODO add your handling code here:
     }//GEN-LAST:event_botonigualMouseClicked
+
+    private void botonrestaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonrestaMouseClicked
+     // TODO add your handling code here:
+    }//GEN-LAST:event_botonrestaMouseClicked
+
+    private void botonacMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonacMouseClicked
+cal.resultado = 0;        // TODO add your handling code here:
+    }//GEN-LAST:event_botonacMouseClicked
 
     /**
      * @param args the command line arguments
