@@ -156,7 +156,7 @@ dato = Float.valueOf(display.getText());
 cal.operando1 = dato;
 cal.suma();
 dato = cal.resultado;
-display.settext
+display.setText(string.valuof (dato))
 
 
     }//GEN-LAST:event_botonsumaMouseClicked
