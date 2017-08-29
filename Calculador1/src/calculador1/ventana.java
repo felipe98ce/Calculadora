@@ -172,9 +172,9 @@ dato = Float.valueOf(display.getText());
 cal.operando1 = dato;
 cal.suma();
 dato = cal.resultado;
-cal.operando2 = dato;
 display.setText(String.valueOf(dato));
 display.setText("");
+cal.operando2 = dato;
 
 
     }//GEN-LAST:event_botonsumaMouseClicked
