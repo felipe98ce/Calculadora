@@ -160,22 +160,21 @@ public class ventana extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+String op;
     private void displayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_displayActionPerformed
-      
+
     }//GEN-LAST:event_displayActionPerformed
 
     private void botonsumaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonsumaMouseClicked
-float dato=0;
-cal.operando1 = 0;
-dato = Float.valueOf(display.getText());
-cal.operando1 = dato;
-cal.suma();
-dato = cal.resultado;
-display.setText(String.valueOf(dato));
-display.setText("");
-cal.operando2 = dato;
-
+        float dato = 0;
+        dato = Float.valueOf(display.getText());
+        cal.operando1 = dato;
+        cal.suma();
+        dato = cal.resultado;
+        display.setText(String.valueOf(dato));
+        display.setText("");
+        cal.operando2 = dato;
+        op = "+";
 
     }//GEN-LAST:event_botonsumaMouseClicked
 
@@ -200,21 +199,42 @@ cal.operando2 = dato;
     }//GEN-LAST:event_botonacActionPerformed
 
     private void botonigualMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonigualMouseClicked
-        if(cal.operando1<0){
-            cal.resta();
-        }else{
-            cal.suma();
+        float dato = 0;
+        dato = Float.valueOf(display.getText());
+        cal.operando1 = dato;
+
+        switch (op) {
+            case "+":
+                cal.resultado = cal.operando1 + cal.operando2;
+                break;
+            case "%":
+                cal.resultado = cal.operando1 % cal.operando2;
+                break;
+            case "-":
+                cal.resultado = cal.operando1 - cal.operando2;
+                break;
+            case "*":
+                cal.resultado = cal.operando1 * cal.operando2;
+                break;
+            case "/":
+                cal.resultado = cal.operando1 / cal.operando2;
+                break;
+            case "sin":
+                cal.resultado = cal.operando1 + cal.operando2;
+                break;
+            case "cos":
+                cal.resultado = cal.operando1 + cal.operando2;
+                break;
+
         }
-        display.setText(String.valueOf(cal.resultado));  
-// TODO add your handling code here:
     }//GEN-LAST:event_botonigualMouseClicked
 
     private void botonrestaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonrestaMouseClicked
-     // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_botonrestaMouseClicked
 
     private void botonacMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonacMouseClicked
-cal.resultado = 0;        // TODO add your handling code here:
+        cal.resultado = 0;        // TODO add your handling code here:
     }//GEN-LAST:event_botonacMouseClicked
 
     /**
