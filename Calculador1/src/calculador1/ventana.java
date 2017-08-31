@@ -36,10 +36,20 @@ public class ventana extends javax.swing.JFrame {
         jButton9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton9.setForeground(new java.awt.Color(51, 153, 255));
         jButton9.setText("*");
+        jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton9MouseClicked(evt);
+            }
+        });
 
         jButton10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton10.setForeground(new java.awt.Color(51, 153, 255));
         jButton10.setText("/");
+        jButton10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton10MouseClicked(evt);
+            }
+        });
 
         jButton11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton11.setForeground(new java.awt.Color(51, 153, 255));
@@ -225,17 +235,50 @@ String op;
             case "cos":
                 cal.resultado = cal.operando1 + cal.operando2;
                 break;
-
+                dato = cal.resultado;
+                display.setText(String.valueOf(dato));
         }
     }//GEN-LAST:event_botonigualMouseClicked
 
     private void botonrestaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonrestaMouseClicked
-        // TODO add your handling code here:
+        float dato = 0;
+        dato = Float.valueOf(display.getText());
+        cal.operando1 = dato;
+        cal.resta();
+        dato = cal.resultado;
+        display.setText(String.valueOf(dato));
+        display.setText("");
+        cal.operando2 = dato;
+        op = "-";
     }//GEN-LAST:event_botonrestaMouseClicked
 
     private void botonacMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botonacMouseClicked
         cal.resultado = 0;        // TODO add your handling code here:
     }//GEN-LAST:event_botonacMouseClicked
+
+    private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
+        float dato = 0;
+        dato = Float.valueOf(display.getText());
+        cal.operando1 = dato;
+        cal.multi();
+        dato = cal.resultado;
+        display.setText(String.valueOf(dato));
+        display.setText("");
+        cal.operando2 = dato;
+        op = "*";
+    }//GEN-LAST:event_jButton9MouseClicked
+
+    private void jButton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseClicked
+        float dato = 0;
+        dato = Float.valueOf(display.getText());
+        cal.operando1 = dato;
+        cal.divi();
+        dato = cal.resultado;
+        display.setText(String.valueOf(dato));
+        display.setText("");
+        cal.operando2 = dato;
+        op = "/";
+    }//GEN-LAST:event_jButton10MouseClicked
 
     /**
      * @param args the command line arguments
